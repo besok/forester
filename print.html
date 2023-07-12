@@ -1,0 +1,1500 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Documentation for Forester</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="components.html"><strong aria-hidden="true">2.</strong> Components</a></li><li class="chapter-item expanded "><a href="intro_lang.html"><strong aria-hidden="true">3.</strong> Tree language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax.html"><strong aria-hidden="true">3.1.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="imports.html"><strong aria-hidden="true">3.2.</strong> Imports</a></li><li class="chapter-item expanded "><a href="definitions.html"><strong aria-hidden="true">3.3.</strong> Definitions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="flow.html"><strong aria-hidden="true">3.3.1.</strong> Flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="seq.html"><strong aria-hidden="true">3.3.1.1.</strong> Sequences</a></li><li class="chapter-item expanded "><a href="falls.html"><strong aria-hidden="true">3.3.1.2.</strong> Fallbacks</a></li><li class="chapter-item expanded "><a href="par.html"><strong aria-hidden="true">3.3.1.3.</strong> Parallel</a></li></ol></li><li class="chapter-item expanded "><a href="decorators.html"><strong aria-hidden="true">3.3.2.</strong> Decorators</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">3.3.3.</strong> Actions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="builtin.html"><strong aria-hidden="true">3.3.3.1.</strong> Built-In</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="invoc_intro.html"><strong aria-hidden="true">3.4.</strong> Invocations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hot.html"><strong aria-hidden="true">3.4.1.</strong> Higher order tree</a></li><li class="chapter-item expanded "><a href="lambda.html"><strong aria-hidden="true">3.4.2.</strong> Lambda</a></li></ol></li><li class="chapter-item expanded "><a href="params.html"><strong aria-hidden="true">3.5.</strong> Parameters</a></li><li class="chapter-item expanded "><a href="antlr.html"><strong aria-hidden="true">3.6.</strong> Antlr grammar</a></li></ol></li><li class="chapter-item expanded "><a href="engine_intro.html"><strong aria-hidden="true">4.</strong> Runtime engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="engine.html"><strong aria-hidden="true">4.1.</strong> Engine</a></li><li class="chapter-item expanded "><a href="bb.html"><strong aria-hidden="true">4.2.</strong> Blackboard</a></li><li class="chapter-item expanded "><a href="r_actions.html"><strong aria-hidden="true">4.3.</strong> Actions</a></li></ol></li><li class="chapter-item expanded "><a href="analysis.html"><strong aria-hidden="true">5.</strong> Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="viz.html"><strong aria-hidden="true">5.1.</strong> Visualization</a></li><li class="chapter-item expanded "><a href="trace.html"><strong aria-hidden="true">5.2.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="sim.html"><strong aria-hidden="true">5.3.</strong> Simulation</a></li><li class="chapter-item expanded "><a href="validations.html"><strong aria-hidden="true">5.4.</strong> Validations</a></li><li class="chapter-item expanded "><a href="optimizations.html"><strong aria-hidden="true">5.5.</strong> Optimizations</a></li></ol></li><li class="chapter-item expanded "><a href="api.html"><strong aria-hidden="true">6.</strong> How to run</a></li><li class="chapter-item expanded "><a href="f_examples.html"><strong aria-hidden="true">7.</strong> Examples</a></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">8.</strong> Tools</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Documentation for Forester</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="pics%2Flogo.png" alt="logo.png" /></p>
+<h1 id="forester"><a class="header" href="#forester">Forester</a></h1>
+<p>Forester represents a framework that provides the set of tools to perform the effective orchestration of the set of tasks.<br />
+The tasks can be performed synchronously or asynchronously, locally or remotely.<br />
+Forester takes care of the correct performance and distribution of the tasks.<br />
+the main concept of the framework
+is the flow based on the <a href="https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)#:~:text=A%20behavior%20tree%20is%20a,tasks%20in%20a%20modular%20fashion.">behavior trees</a><br />
+it can be effectively used in the game, ai, robotic areas, or anywhere where the workflow engine can be applied.</p>
+<h2 id="why-forester"><a class="header" href="#why-forester">Why Forester</a></h2>
+<p>The main idea and the target of Forester is to make the process of chaining a complex logic <br />
+of the different tasks together effective and easy.</p>
+<p>The following set of features is summoned to highlight the framework among the others. </p>
+<h4 id="the-dsl-to-describe-the-logic"><a class="header" href="#the-dsl-to-describe-the-logic">The dsl to describe the logic</a></h4>
+<p>One of the problems that Forester endeavours to solve is to isolate the logic of the orchestration \ 
+from the logic of the tasks implementations and therefore the dsl ('Tree') is provided. <br />
+The Dsl is script based and supports a number of features that can alleviate the writing of the big trees.</p>
+<h4 id="the-framework-provides-the-ability-to-create-async-and-sync-tasks-tbd"><a class="header" href="#the-framework-provides-the-ability-to-create-async-and-sync-tasks-tbd">The framework provides the ability to create async and sync tasks (TBD)</a></h4>
+<p>The tasks (leaves of the tree) can be fulfilled with the asynchronous and synchronous logic.
+The difference here is the async tasks will not block the tree while sync tasks will block the tree.</p>
+<h4 id="the-framework-provides-the-ability-to-create-remote-and-local-tasks-tbd"><a class="header" href="#the-framework-provides-the-ability-to-create-remote-and-local-tasks-tbd">The framework provides the ability to create remote and local tasks (TBD)</a></h4>
+<p>The tasks can represent as a local stateless/stateful blocks of logic as the remote servers or procedures.</p>
+<h4 id="the-tooling-to-visualize-and-trace-the-execution-of-the-tree-tbd"><a class="header" href="#the-tooling-to-visualize-and-trace-the-execution-of-the-tree-tbd">The tooling to visualize and trace the execution of the tree (TBD)</a></h4>
+<p>The tree can be visualized and traced in order to see how it is supposed to be executed.</p>
+<h4 id="the-simulation-mode-is-supposed-to-aid-with-the-design-decisions-tbd"><a class="header" href="#the-simulation-mode-is-supposed-to-aid-with-the-design-decisions-tbd">The simulation mode is supposed to aid with the design decisions (TBD)</a></h4>
+<p>The special simulation mode aims to help, quickly to see how the tree will be unfolding and how it can be designed.</p>
+<h4 id="the-optimizations-and-analysis-of-the-tree-tbd"><a class="header" href="#the-optimizations-and-analysis-of-the-tree-tbd">The optimizations and analysis of the tree (TBD)</a></h4>
+<p>The language provides a set of optimizations and validations to either ensure the logic is correct <br />
+or perform some validations on it.</p>
+<h4 id="the-validations-engine-allows-the-users-to-create-the-manually-defined-validations-tbd"><a class="header" href="#the-validations-engine-allows-the-users-to-create-the-manually-defined-validations-tbd">The validations engine allows the users to create the manually defined validations (TBD)</a></h4>
+<p>The user-defined validations can be useful to restrict some features of the framework.</p>
+<h4 id="integrations-tbd"><a class="header" href="#integrations-tbd">Integrations (TBD)</a></h4>
+<h2 id="why-behaviour-trees"><a class="header" href="#why-behaviour-trees">Why Behaviour trees</a></h2>
+<p>Firstly, they provide a strong math abstraction over the orchestration logic <br />
+and enables to separate the business logic and the tree logic itself.</p>
+<p>On the other hand, they have only a small set of logically conjucted components making the design easier,</p>
+<h3 id="articles-that-introduce-into-the-basics-of-the-behaviour-trees"><a class="header" href="#articles-that-introduce-into-the-basics-of-the-behaviour-trees">Articles that introduce into the basics of the behaviour trees</a></h3>
+<ul>
+<li><a href="https://outforafight.wordpress.com/2014/07/15/behaviour-behavior-trees-for-ai-dudes-part-1/">Chris Simpson’s Behavior trees for AI: How they work</a></li>
+<li><a href="https://robohub.org/introduction-to-behavior-trees/">Introduction to behavior trees</a></li>
+<li><a href="https://www.polymathrobotics.com/blog/state-machines-vs-behavior-trees">State Machines vs Behavior Trees</a></li>
+</ul>
+<h3 id="useful-libraries"><a class="header" href="#useful-libraries">Useful libraries</a></h3>
+<ul>
+<li><a href="https://www.behaviortree.dev/">BehaviorTree.CPP</a> : the brilliant library provides the implementation on CPP.</li>
+<li><a href="https://github.com/bitbrain/beehave">Beehave</a> :  behavior tree AI for Godot Engine.</li>
+<li><a href="https://github.com/Sollimann/bonsai">Bonsai</a> : the great library for behaviour trees in rust. </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="components"><a class="header" href="#components">Components</a></h1>
+<p>All in all, the framework provides the following components :</p>
+<pre><code class="language-mermaid">flowchart LR   
+    subgraph Analysis
+        direction LR
+        Visualization 
+        Tracing
+        Simulation
+    end
+    subgraph Scripts
+        direction LR
+        Tree_lang &lt;--&gt; Validations 
+        Validations &lt;--&gt; Optimizations
+        Tooling
+    end
+    
+    subgraph Runtime
+        direction BT
+        Engine &lt;--&gt; Blackboard
+        Blackboard &lt;--&gt; ActionKeeper
+    end
+    
+
+Scripts --&gt; Analysis
+Runtime --&gt; Analysis
+Scripts --&gt; Runtime
+
+</code></pre>
+<h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
+<p>That section describes the language and a way how the users can describe the logic of the trees:</p>
+<h3 id="tree-lang"><a class="header" href="#tree-lang">Tree lang</a></h3>
+<p>The scripts. They are usually can be stored as a folder with one or more <code>root</code> node which will be executed afterwords.
+The syntax of the language takes a vast part of the book and described in the following <a href="./intro_lang.html">chapter</a></p>
+<h3 id="validations-and-optimizations"><a class="header" href="#validations-and-optimizations">Validations and Optimizations</a></h3>
+<p>These parts come with static analyzer and are conducted when the users compile the scripts into the runtime tree.
+They are described in the corresponding sections <a href="./validations.html">Validations</a> and <a href="./optimizations.html">Optimizations</a></p>
+<h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
+<p>There are some number of extensions for ides to alleviate the writing scripts and running the trees. 
+The detailed description is in the chapter <a href="./tools.html">Tools</a></p>
+<h2 id="runtime"><a class="header" href="#runtime">Runtime</a></h2>
+<p>That is the central part of the framework. The runtime orchestrates the tree execution alongside <br />
+with the storing and manipulating some data and actions.</p>
+<h3 id="engine"><a class="header" href="#engine">Engine</a></h3>
+<p>The main orchestrator. It is described in the chapter <a href="./engine.html">Engine</a></p>
+<h3 id="blackboard"><a class="header" href="#blackboard">Blackboard</a></h3>
+<p>The component which is responsible for the storing the intermediate data that can be passing across the tree.
+The mechanism of working is described in that <a href="./bb.html">chapter</a></p>
+<h3 id="actionkeeper"><a class="header" href="#actionkeeper">ActionKeeper</a></h3>
+<p>The component stores and processes the user implemented actions (<em>tasks</em> or <em>conditions</em>).
+The chapter <a href="./actions.html">Action</a> describes how to interact with ActionKeeper.</p>
+<h2 id="analysis"><a class="header" href="#analysis">Analysis</a></h2>
+<p>This component helps to analyse the trees and also interacts with them in an easy way</p>
+<h3 id="visualization"><a class="header" href="#visualization">Visualization</a></h3>
+<p>The users can visualize the tree using graphviz format.
+This <a href="./viz.html">section</a> explains how to do that.</p>
+<h3 id="tracing"><a class="header" href="#tracing">Tracing</a></h3>
+<p>The users can turn on some extra logging that can float up some extra meta information \ 
+helpful to design and debug the trees. This <a href="./trace.html">page</a> explains how to handle the tracing.</p>
+<h3 id="simulation"><a class="header" href="#simulation">Simulation</a></h3>
+<p>The users can run the tree with some stubs instead of the real implementations of the actions. \ 
+It can help swiftly define and correct the behavior of the tree itself.
+This <a href="./sim.html">chapter</a> describes it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tree-language"><a class="header" href="#tree-language">Tree language</a></h1>
+<p>The tree language is a frontend for the framework itself.
+Generally, the language is a simple dsl encompassing the basic abstractions <br />
+and enabling to create of the building block upon the abstractions </p>
+<h3 id="why-the-language-is-needed"><a class="header" href="#why-the-language-is-needed">Why the language is needed</a></h3>
+<p>The basic idea behind the language is an attempt to provide a set of generalizations <br />
+which will alleviate the redundancy in some cases.</p>
+<ul>
+<li>The language allows creating the tree definitions accepting other trees as parameters (higher order trees)</li>
+<li>The language provides lambda definitions</li>
+</ul>
+<p>The syntax of the language is very simple and is described in this chapter.</p>
+<h3 id="structure-of-the-project"><a class="header" href="#structure-of-the-project">Structure of the project</a></h3>
+<p>The scripts are supposed to be in the folder which is marked as <code>root</code> directory.
+All imports start from the root and represent a path relating to the root directory:</p>
+<pre><code class="language-file"> - project_folder
+    - main.tree
+    - gripper.tree
+    - cv.tree
+    - utility
+        - utility.tree
+        - helpers.tree
+</code></pre>
+<p>The project should have at least one <code>root</code> tree <a href="./definitions.html">definition</a>. If the project has several,
+the one that is supposed to run needs to be pointed out to.</p>
+<h3 id="file-extension"><a class="header" href="#file-extension">File extension</a></h3>
+<p>The files have the extension <code>tree</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="syntax"><a class="header" href="#syntax">Syntax</a></h1>
+<p>The syntax of the <code>tree</code> language is similar to any average scripting language namely it consists of:</p>
+<ul>
+<li>tree definitions: subtree that defines a prat of the complete tree.</li>
+<li>tree invocations: the calls of the tree definitions.</li>
+<li>imports: the instructions that enable import from the other files.</li>
+<li>parameters and arguments: that allow passing the values and the other tree to the tree definitions.</li>
+<li>lambda: the ability to define the anonymous tree definitions and invoke it at the same time.</li>
+<li>comments: the extra information.</li>
+</ul>
+<p>Below, a simple example that shows the aforementioned points</p>
+<pre><code class="language-f-tree">import &quot;nested/impls.tree&quot;
+import &quot;nested/impls.tree&quot; {
+    grasp =&gt; grasp_ball,
+}
+
+root place_ball_to_target fallback {
+    place_to(
+        obj = {&quot;x&quot;:1 },
+        operation = place([10]),
+    )
+    retry(5) ask_for_help()
+}
+
+sequence place_to(what:object, operation:tree){
+    fallback {
+        is_approachable(what)
+        do_job(approach(what))
+    }
+    fallback {
+         is_graspable(what)
+         do_job(approach(what))
+    }
+    sequence {
+         savepoint()
+         operation(..)
+    }
+}
+
+sequence place(where:array){
+    is_valid_place(where)
+    do_job(slowly_drop({&quot;cord&quot;:1}))
+}
+
+sequence do_job(action:tree){
+    savepoint()
+    info_wrapper(action(..))
+    savepoint()
+}
+
+sequence info_wrapper(action:tree){
+    log(&quot;before action&quot;)
+    action(..)
+    log(&quot;before action&quot;)
+}
+
+impl log(text:string);
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="imports"><a class="header" href="#imports">Imports</a></h1>
+<p>The code of the trees can be organized as a project, breaking down the tree <a href="./definitions.html">definitions</a> into different files.
+It enables the project to be organized logically avoiding redundancy. </p>
+<p>Therefore, the imports can appear in the file anywhere but are mostly grouped at the top, forming a sort of header.</p>
+<h2 id="syntax-1"><a class="header" href="#syntax-1">Syntax</a></h2>
+<h3 id="the-whole-file"><a class="header" href="#the-whole-file">The whole file</a></h3>
+<p>To import the whole file, the following syntax needs to be applied:</p>
+<pre><code class="language-f-tree">import &quot;nested/impls.tree&quot;
+import &quot;/usr/home/projects/impls.tree&quot;
+import &quot;C:\projects\forester\tree\tests\plain_project\nested\impls.tree&quot;
+</code></pre>
+<h3 id="the-definition-with-alias"><a class="header" href="#the-definition-with-alias">The definition with alias</a></h3>
+<pre><code class="language-f-tree">import &quot;nested/impls.tree&quot; {
+    grasp =&gt; grasp_ball,
+}
+</code></pre>
+<h2 id="import-path"><a class="header" href="#import-path">Import path</a></h2>
+<p>The path of the imports can be:</p>
+<ul>
+<li>absolute : <code>C:\plain_project\nested\impls.tree</code></li>
+<li>relative : <code>nested/impls.tree</code></li>
+</ul>
+<h3 id="absolute-path"><a class="header" href="#absolute-path">Absolute path</a></h3>
+<pre><code class="language-f-tree">import &quot;C:\projects\forester\tree\tests\plain_project\nested\impls.tree&quot;
+</code></pre>
+<h3 id="relative-path"><a class="header" href="#relative-path">Relative path</a></h3>
+<p>The relative path relates to the root of the project, that is pointed out in the start.
+Typically, the structure is the following:</p>
+<pre><code class="language-file">- project_folder
+   - main.tree // the file that has a root tree
+   - .. folders
+   - folder
+       - def.tree
+   - folder_nested
+       - another_nested
+           - file.tree    
+</code></pre>
+<p>Here the import of the <code>file.tree</code> can be</p>
+<pre><code>import &quot;folder_nested/another_nested/file.tree&quot;
+</code></pre>
+<p>in any other file.</p>
+<h2 id="aliases"><a class="header" href="#aliases">Aliases</a></h2>
+<p>To avoid the problem of ambiguous names when several tree definitions with the same name can be imported,
+the aliases can come to the rescue.</p>
+<p>They allow renaming tree definition while imports:</p>
+<pre><code class="language-f-tree">import &quot;/robot_specific_ops/cv.tree&quot; // has a tree def cv
+import &quot;/common_ops/cv.tree&quot; { // also has a tree def cv 
+    cv =&gt; com_cv // to avoid ambiguity, we can rename it using an alias.
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tree-definition"><a class="header" href="#tree-definition">Tree definition</a></h1>
+<p>The tree definition denotes a part of the tree (so-called subtree) that defines an independent description and can </p>
+<ul>
+<li>have the input parameters and accept arguments including other trees definitions</li>
+<li>invoke other tree definitions and get invoked by others (except <code>root</code>)</li>
+</ul>
+<p>There are the following types of the definitions:</p>
+<ul>
+<li>Flow:
+the <a href="https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)#Control_flow_node">core part</a> of the behavior tree framework.
+The nodes define a logic of processing the tree itself, navigating for the next step.</li>
+<li>Lambda: The anonymous definition of subtree with instant invocation at this place.</li>
+<li>Decorator: the atomic built-in tree definition that has one child and can enrich or transform the child result according to its type.</li>
+<li>Actions: the leaves of the tree bearing the business logic.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flow-tree-definitions"><a class="header" href="#flow-tree-definitions">Flow tree definitions</a></h1>
+<p>The flow tree definitions describe the way how the tree will be traversed.
+There are 2 basic types which get broken down afterward:</p>
+<ul>
+<li>sequences: A Sequence performs every child as long as they are return <code>Success</code>.
+If otherwise, the sequence instantly stops with the <code>failure</code> status</li>
+<li>fallbacks: A fallback performs children until the first <code>Success</code>.</li>
+</ul>
+<p>Combining the aforementioned flow trees, we can get any type of logic.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sequence"><a class="header" href="#sequence">Sequence</a></h1>
+<p>A Sequence node ticks all underlying nodes as long as they return <code>Success</code>.
+Otherwise, (when a child returns <code>failure</code> a sequence aborted)</p>
+<p>In the language, the tree definitions and lambda invocations of this element are marked with the key word <code>sequence</code>.</p>
+<pre><code class="language-f-tree">impl store(key:string, value:string); // store a string value to a key in blackboard 
+
+root main {
+    sequence {
+        store(&quot;a&quot;,&quot;1&quot;) // first tick and proceed if succeded 
+        store(&quot;b&quot;,&quot;2&quot;) // sec tick and proceed if succeded 
+        store(&quot;c&quot;,&quot;3&quot;) // thrd tick and finish if succeded 
+    }
+}
+</code></pre>
+<p>with a graph representation</p>
+<pre><code class="language-dot process">strict digraph  {
+    1[label=&quot;root
+main &quot;,shape=rect,color=black]
+    1 -&gt; 2 
+    2[label=&quot;sequence&quot;,shape=rect,color=darkred]
+    2 -&gt; 3 
+    2 -&gt; 4 
+    2 -&gt; 5 
+    3[label=&quot;store (key=a,default=1)&quot;,shape=component,color=green]
+    4[label=&quot;store (key=b,default=2)&quot;,shape=component,color=green]
+    5[label=&quot;store (key=c,default=3)&quot;,shape=component,color=green]
+}
+</code></pre>
+<h2 id="common-behaviour"><a class="header" href="#common-behaviour">Common behaviour</a></h2>
+<ul>
+<li>When it gets the first <code>tick</code> it switches to state <code>running</code></li>
+<li>When a child returns <code>success</code> it proceeds to the next one and ticks it
+<ul>
+<li>if this is a final child, it returns <code>success</code></li>
+</ul>
+</li>
+<li>If a child returns <code>running</code>, the node returns <code>running</code> as well</li>
+<li>If a child returns <code>failure</code>, the node returns <code>failure</code> as well</li>
+<li>When a node is restarted, the process starts from the beginning</li>
+</ul>
+<h2 id="intention"><a class="header" href="#intention">Intention</a></h2>
+<p>Often, it is used as a straight chain of instructions</p>
+<pre><code class="language-f-tree">// if the definition has only one child 
+// (root has only one child) '{''}' can be omitted
+root main sequence {
+        validate_env() 
+        perform_action() 
+        finish_and_save()  
+}
+
+</code></pre>
+<h1 id="subtypes"><a class="header" href="#subtypes">Subtypes</a></h1>
+<p>There are 2 subtypes that bring a few subtleties to the common process</p>
+<h2 id="memory-sequence"><a class="header" href="#memory-sequence">Memory Sequence</a></h2>
+<p>This sequence defines in the language with the keyword <code>m_sequence</code> and has the following peculiarity:
+The sequence memorizes the children that are succeeded and skips them next time:</p>
+<pre><code class="language-f-tree">root main {
+    retry(5) m_sequence {
+        store(&quot;key&quot;,1)    // returns success
+        perform_action()  // returns failure
+        finish_and_save()  
+    }
+}
+</code></pre>
+<p>The node <code>perform_action</code> returns <code>failure</code> and the decorator <code>retry</code> restarts <code>sequence</code>.
+The main difference with a sequence is an execution starts from the node <code>perform_action</code> skipping the  node<code>store</code>.</p>
+<h2 id="reactive-sequence"><a class="header" href="#reactive-sequence">Reactive Sequence</a></h2>
+<p>This sequence defines in the language with the keyword <code>r_sequence</code> and has the following peculiarity:
+The sequence restarts all children if they return either failure or running:</p>
+<pre><code class="language-f-tree">root main {
+    m_sequence {
+        store(&quot;key&quot;,1)    // returns success
+        perform_action()  // returns running
+        finish_and_save()  
+    }
+}
+</code></pre>
+<p>The node <code>perform_action</code> returns <code>running</code> and the whole sequence returns <code>running</code> 
+but on the next tick it starts from the node <code>store</code> again.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fallback"><a class="header" href="#fallback">Fallback</a></h1>
+<p>A Fallback ticks children sequentially until someone returns a <code>Success</code>.
+Otherwise, if all children return <code>Failure</code>, the node returns <code>Failure</code>.</p>
+<p>In the language, the tree definitions and lambda invocations of this element are marked with the key word <code>fallback</code>.</p>
+<pre><code class="language-f-tree">cond is_busy()
+impl take_from_others()
+
+root main  {
+    fallback {
+        any_tasks() // goes farther if the first actions is failure 
+        do_it() 
+    }
+}
+</code></pre>
+<h2 id="common-behaviour-1"><a class="header" href="#common-behaviour-1">Common behaviour</a></h2>
+<ul>
+<li>When it gets the first <code>tick</code> it switches to state <code>running</code></li>
+<li>When a child returns <code>success</code> it stops the execution and returns <code>success</code></li>
+<li>If a child returns <code>running</code>, the node returns <code>running</code> as well</li>
+<li>If a child returns <code>failure</code>, the node proceeds to the next child 
+<ul>
+<li>if this is a final child, it returns <code>failure</code></li>
+</ul>
+</li>
+<li>When a node is restarted, the process starts from the beginning</li>
+</ul>
+<h2 id="intention-1"><a class="header" href="#intention-1">Intention</a></h2>
+<p>Often, it is used for making conditions.
+The script below emulates a simple condition that needs to do before </p>
+<pre><code class="language-f-tree">cond can_take(sub:object)
+impl move_to(sub:object)
+impl take(sub:object)
+
+root main sequence {
+    fallback {
+        can_take(item)
+        move_to(item)
+    }
+    take(item)
+
+}
+</code></pre>
+<p>using a programming language, it could be the following:</p>
+<pre><pre class="playground"><code class="language-rust">fn main(item:String){
+    if !can_take(item) {
+        move_to(item)
+    }
+    take(item)
+}</code></pre></pre>
+<h1 id="subtypes-1"><a class="header" href="#subtypes-1">Subtypes</a></h1>
+<p>There is one subtype that brings a few subtleties to the common process</p>
+<h2 id="reactive-fallback"><a class="header" href="#reactive-fallback">Reactive Fallback</a></h2>
+<p>This Fallback defines in the language with the keyword <code>r_fallback</code> and has the following peculiarity:
+The fallback restarts all children on the next tick if someone returned <code>running</code>:</p>
+<pre><code class="language-f-tree">...
+root main {
+    r_fallback {
+        needs_to_charge()    // returns failure
+        action()  // returns running
+        fin_and_save()  
+    }
+}
+</code></pre>
+<p>The node <code>action</code> returns <code>running</code> and the whole sequence returns <code>running</code>
+but on the next tick it starts from the node <code>needs_to_charge</code> again.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="decorators"><a class="header" href="#decorators">Decorators</a></h1>
+<p>The decorators are the specific type of node,
+that transforms the result of its child.
+Every decorator has a specific keyword and set of parameters.</p>
+<p>** Every decorator should have solely one child **</p>
+<h2 id="inverter"><a class="header" href="#inverter">Inverter</a></h2>
+<p>The keyword is <code>inverter</code>.
+The decorator inverts the result of the child.<br />
+<em>Only the final results are inverted, for <code>running</code> the result will be
+<code>running</code> as well</em></p>
+<pre><code class="language-f-tree">main root sequence {
+    inverter check_condition() // inverts the result
+}
+</code></pre>
+<h2 id="forcesuccess"><a class="header" href="#forcesuccess">ForceSuccess</a></h2>
+<p>The keyword is <code>force_success</code>.
+Always returns <code>success</code> regardless of the child response</p>
+<h2 id="forcefail"><a class="header" href="#forcefail">ForceFail</a></h2>
+<p>The keyword is <code>force_fail</code>.
+Always returns <code>failure</code> regardless of the child response</p>
+<h2 id="repeat"><a class="header" href="#repeat">Repeat</a></h2>
+<p>The keyword is <code>repeat</code>
+It repeats the child so the number of times according to the passing parameter</p>
+<ul>
+<li>count: the number of repetitions. 0 by default</li>
+</ul>
+<pre><code class="language-f-tree">// the job will be performed 0 times, therefore will not be invoked at all
+root main_idle repeat {
+    job()
+}
+
+// the job will be performed 5 times
+root main repeat(5) {
+    job()    
+}
+</code></pre>
+<h2 id="retry"><a class="header" href="#retry">Retry</a></h2>
+<p>The keyword is <code>retry</code>
+If the child returns <code>failure</code>, the decorator tries to run it again.
+The number of attempts is restricted by the given argument</p>
+<ul>
+<li>attempts: the number of attempts to retry. 0 by default</li>
+</ul>
+<pre><code class="language-f-tree">// 0 by default. will be failed as soon as at least one of the child gets failed
+root main retry {
+    sequence { 
+        job1() 
+        job2() 
+    }
+}
+
+// the decorator will try to repeat the sequence upt to 10 times if it returns failure
+root main_with_retry retry(10) {
+    sequence { 
+        job1() 
+        job2() 
+    }
+}
+</code></pre>
+<h2 id="timeout"><a class="header" href="#timeout">Timeout</a></h2>
+<p>The keyword is <code>timeout</code>
+The decorator tries to measure how long the child is running and shut id down if it exceeds the limit.
+<strong>For now, it works only for asynchronous actions since the decorator measures time when the child returns <code>running</code></strong></p>
+<ul>
+<li>limit: the threshold in milliseconds. 1000 by default.</li>
+</ul>
+<pre><code class="language-f-tree">// if the squence works asynchonously (returns running)
+// the timeout will count up the time of the first start 
+// and then recheck it every time when the child returns running 
+root main_with_retry timeout {
+    sequence { 
+        job1() 
+        job2() 
+    }
+}
+</code></pre>
+<h2 id="delay"><a class="header" href="#delay">Delay</a></h2>
+<p>The keyword is <code>delay</code>
+The decorator delays the initial run of the child for the given as a parameter time.</p>
+<ul>
+<li>wait: the delay time in milliseconds. 0 by default.</li>
+</ul>
+<pre><code class="language-f-tree">// the delay is zero
+root main delay job()
+
+// the delay is 1 second
+root main_d delay(1000) job()
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actions"><a class="header" href="#actions">Actions</a></h1>
+<p>The leaves of the tree are actions, which are the final point of the whole execution mechanism.
+They are supposed to be implemented either using <code>rust</code> or other languages
+and mix-in on the execution stage.</p>
+<p>The actions have 2 keywords to mark:</p>
+<ul>
+<li><code>impl</code> means some job or action that can take time and be asynchronous</li>
+<li><code>cond</code> means some activity to check some conditions and swiftly returns result</li>
+</ul>
+<p><em>In practice, the engine does not see difference</em></p>
+<p>in the language, they can be marked as an operation with empty or lacking implementation.</p>
+<pre><code class="language-f-tree">impl action1(a:string); // here the semicolon is required
+impl action2(b:object){} // here, not
+
+cond cond1(c:num);
+cond cond2(d:array){}
+
+</code></pre>
+<h2 id="contract"><a class="header" href="#contract">Contract</a></h2>
+<p><strong>The contract of the definition and invocation should coincide, otherwise the execution will throw an exception</strong> </p>
+<pre><code class="language-f-tree">impl action(c:num)
+
+root main action() // the exception will be raised since the argument is uncovered.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-actions"><a class="header" href="#built-in-actions">Built-in actions</a></h1>
+<p>By default, the framework provides a set of the actions 
+and conditions that are already implemented.</p>
+<p>To use them, the user should import the special file</p>
+<pre><code class="language-f-tree">import &quot;std::actions&quot;
+</code></pre>
+<p>or just a specific definition of the file</p>
+<pre><code class="language-f-tree">import &quot;std::actions&quot; {
+    store =&gt; store_data,
+    fail
+}
+</code></pre>
+<h2 id="file"><a class="header" href="#file">File</a></h2>
+<pre><code class="language-f-tree">//
+// Built-in actions. 
+// The actions are accessible using the import 'import &quot;std::actions&quot;' 
+// Better off, the file be avoided modifying
+//
+
+// Fails execution, returning Result::Failure        
+impl fail(reason:string);
+impl fail_empty();
+
+// Success execution, returning Result::Success  
+impl success();
+
+// Running execution, returning Result::Running  
+impl running();
+
+// Sleeps on duration(milliseconds) then returns Result::Success
+// impl sleep(duration:num);
+
+// Stores the string value in the given key. Returns Result::Success. 
+// If the cell is locked, returns Result::Failure   
+impl store_str(key:string, value:string);
+
+// Compares given string value with what is in the cell:
+// - Returns Success if they are equal
+// - Returns Fail(reason) if they are not equal
+// - Returns Fail(reason) if there is no cell in bb with the given key.
+impl eq_str(key:string, expected:string);
+impl eq_num(key:string, expected:num);
+
+/// Store the current tick
+impl store_tick(name:string);
+
+</code></pre>
+<h1 id="http-server-sync--async"><a class="header" href="#http-server-sync--async">Http server (sync | async)</a></h1>
+<h1 id="curl"><a class="header" href="#curl">Curl</a></h1>
+<h1 id="lock--unlock-key"><a class="header" href="#lock--unlock-key">lock | unlock key</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="invocations"><a class="header" href="#invocations">Invocations</a></h1>
+<p>The language provides the possibility to invoke the definitions 
+or lambdas in the body of the other definitions</p>
+<pre><code class="language-f-tree">
+import &quot;std::actions&quot;
+
+impl handle_distance(item:object);
+
+sequence main_seq {
+    inverter fail(&quot;for test&quot;)
+    success()
+}
+
+sequence check_distance(item:object){
+        store_str(&quot;log&quot;,&quot;start&quot;)
+        handle_distance(item)
+        store_str(&quot;log&quot;,&quot;end&quot;)
+}
+
+// definition
+root main sequence {
+    // invocation
+    main_seq()
+    
+    // another invocation
+    check_distance({&quot;x&quot;:1,&quot;y&quot;:2})
+}
+</code></pre>
+<h2 id="other-types-of-invocation"><a class="header" href="#other-types-of-invocation">Other types of invocation</a></h2>
+<p>The other types of invocation are described in the following sections but briefly are:</p>
+<ul>
+<li>higher order tree invocation: a possibility to pass a tree definition as parameter</li>
+<li>lambda invocation: an anonymous definition that creates and gets invoked at the same time.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="higher-order-tree"><a class="header" href="#higher-order-tree">Higher order tree</a></h1>
+<p>The definitions can be passed as arguments in invocations for other definitions.
+The definitions should accept <code>tree</code> as a parameter.</p>
+<p>To invoke the definition, coming from parameters, the definition should have a name and '(..)' after,
+like that:<code>operation(..)</code></p>
+<h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<p>To reduce the amount of redundancy in implementing some logic.
+The higher order tree enables to construct abstractions that will be easily 
+used in the next tree definitions reducing the amount of code. </p>
+<h2 id="syntax-2"><a class="header" href="#syntax-2">Syntax</a></h2>
+<pre><code class="language-f-tree">...
+
+// the checked_task declares acceptance of 2 tree definitions
+fallback checked_task(cond:tree, task:tree){
+    // invoke a tree definition from parameters
+    cond(..)
+    // invoke a tree definition from parameters
+    task(..)
+}
+
+sequence handle(item:object) {
+    // higher order invocation in arguments
+    checked_task(close_enough(item), approach(item))
+    checked_task(is_graspable(item), grasp(item))
+    // The lambdas can be used as higher-order tree as well
+    checked_task(enough_space(item), sequence {
+        move(item)
+        save(tem)
+    })
+}
+</code></pre>
+<h2 id="parameters"><a class="header" href="#parameters">Parameters</a></h2>
+<p>For now, the tree does not perform the parameter capturing.
+It means the following:</p>
+<ul>
+<li>static constants are passed as is</li>
+<li>pointers are resolved at the moment of invocation</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lambda"><a class="header" href="#lambda">Lambda</a></h1>
+<p>The anonymous definitions can be defined and instantly invoked at the same time.
+The definitions are unique and every time the new definition is created.</p>
+<ul>
+<li>They don't have a name</li>
+<li>They are unique</li>
+<li>They don't have arguments</li>
+</ul>
+<p><strong>Only the elements of <a href="./flow.html">Flow</a>  can be used in lambdas</strong>
+<strong>The actions always have to be defined explicitly.</strong></p>
+<pre><code class="language-f-tree">impl job();
+
+root main {
+    // lambda invocation
+    sequence {
+        job()
+        job()
+        job()
+    }
+    // another lambda invocation
+    fallback {
+        sequence {
+            job()
+            job()   
+        }
+        // the second level of lambda
+        sequence {
+            job()
+            // also lambda, but the backets are omitted. 
+            r_sequence job()
+        }
+    }
+
+}
+</code></pre>
+<h2 id="parameter"><a class="header" href="#parameter">Parameter</a></h2>
+<p>Lambda can be used as parameters as well.</p>
+<pre><code class="language-f-tree">impl savepoint();
+impl job();
+
+sequence wrapper(item:tree){
+    savepoint()
+    item(..)
+    savepoint()
+}
+
+root main sequence {
+    wrapper(
+        sequence {
+            job()
+            job()
+            job()
+        }
+    )
+    wrapper(
+        item = 
+            fallback {
+                job()
+                job()
+                job()
+            }
+    )
+    
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h1>
+<h2 id="terminology"><a class="header" href="#terminology">Terminology</a></h2>
+<ul>
+<li>Parameters are elements of tree definitions.</li>
+<li>Arguments are elements of tree invocations.</li>
+</ul>
+<pre><code class="language-f-tree">// parameters 'a' and 'b'
+sequence tree(a:string,b:num){
+    // arguments 'c', 'd'
+    job(c = 1, d = &quot;d&quot;)
+}
+</code></pre>
+<h2 id="arguments"><a class="header" href="#arguments">Arguments</a></h2>
+<p>Therefore, the arguments represent the attachments of the real value to the parameters.
+The Argument can be one of two types:</p>
+<ul>
+<li>Named argument</li>
+<li>Unnamed argument</li>
+</ul>
+<pre><code class="language-f-tree">impl action(a:string, b:num)
+
+root main sequnce {
+    // Named Arguments
+    action(a=&quot;a&quot;,b:1)
+    
+    // Unnamed Arguments
+    action(&quot;a&quot;,1)
+}
+</code></pre>
+<p><strong>There is impossible to mix named and unnamed arguments</strong>
+The following code will have an error during the compilation process.</p>
+<pre><code class="language-f-tree">impl action(a:string, b:num)
+root main sequnce {
+    action(&quot;a&quot;,b=1 )
+}
+</code></pre>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<h3 id="number"><a class="header" href="#number">Number</a></h3>
+<p>The numbers are defined with a keyword <code>num</code>
+There are 4 possible types of numbers presented:</p>
+<ul>
+<li>Integers(64)</li>
+<li>Floats(64)</li>
+<li>Hex</li>
+<li>Binary</li>
+</ul>
+<p><strong>In case of exceeding the maximum value, the error will be raised on the compile time.</strong></p>
+<pre><code class="language-f-tree">impl action(param:num)
+
+root main sequence {
+    // Integers
+    action(1)
+    action(10e2)
+    action(-1)
+    action(0)
+    
+    // Floats
+    action(0.0)
+    action(100.0e1)
+    action(-100.0)
+    
+    // Hex
+    action(0x123)
+    
+    // Binary
+    action(0b010101)
+}
+</code></pre>
+<h3 id="string"><a class="header" href="#string">String</a></h3>
+<p>The strings are defined with <code>string</code></p>
+<pre><code class="language-f-tree">impl action(param:string)
+root main action(param = &quot;X&quot;)
+</code></pre>
+<h3 id="boolean"><a class="header" href="#boolean">Boolean</a></h3>
+<p>The booleans are defined with a keyword <code>bool</code> and has the following parameters:</p>
+<ul>
+<li><code>true</code> for the positive statement</li>
+<li><code>false</code> for the negative statement</li>
+</ul>
+<pre><code class="language-f-tree">impl action(param:bool);
+root main action(true)
+</code></pre>
+<h3 id="arrays"><a class="header" href="#arrays">Arrays</a></h3>
+<p>The arrays are defined with keyword <code>array</code>
+Arrays can have several aforementioned elements encompassed in one entity.</p>
+<p>The arrays have the following syntax:</p>
+<ul>
+<li><code>[</code> defines the start of array</li>
+<li><code>]</code> defines the end of array</li>
+<li><code>,</code> defines the separator between elements</li>
+<li>the rest is defined by the particular elements</li>
+</ul>
+<p><strong>It is expected, the arrays are homogeneous and have all elements only one type</strong></p>
+<p><strong>The arrays can have a trailing comma as well, <code>[1,]</code></strong></p>
+<pre><code class="language-f-tree">impl action(elems:array);
+root main sequence {
+    action([1,2,3,4])
+    action([1.1,0.1])
+    action([&quot;a&quot;,&quot;b&quot;])
+}
+</code></pre>
+<h3 id="objects"><a class="header" href="#objects">Objects</a></h3>
+<p>The objects are defined with keyword <code>object</code>
+Objects can have several aforementioned elements encompassed
+in one entity with the unique key attached to the every entity</p>
+<p>The objects have the following syntax:</p>
+<ul>
+<li><code>{</code> defines the start of object</li>
+<li><code>}</code> defines the end of object</li>
+<li><code>,</code> defines the separator between elements</li>
+<li>&quot;key&quot; defines the name of the element key</li>
+<li>the rest is defined by the particular elements</li>
+</ul>
+<p><strong>The objects can have a trailing comma as well, <code>{&quot;a&quot;:1,}</code></strong></p>
+<pre><code class="language-f-tree">impl action(elems:object);
+root main sequence {
+    action({&quot;key&quot;:1, &quot;key2&quot;:&quot;key&quot;})
+    action(
+        {
+            &quot;array&quot;: [1,2,3,4,],
+            &quot;string&quot;:&quot;string&quot;,
+            &quot;num&quot;:1,
+            &quot;pointer&quot;: pointer
+        }
+    )
+}
+</code></pre>
+<h3 id="tree"><a class="header" href="#tree">Tree</a></h3>
+<p>The other tree definitions are defined with a keyword <code>tree</code>
+**The parameters of this type can be added and defined only in the <a href="./flow.html">flow</a> definitions.</p>
+<pre><code class="language-f-tree">impl log(id:string,info:string);
+cond check();
+cond task();
+
+fallback checked_task(check:tree, task:tree){
+    check(..)
+    task(..)
+}
+
+sequence logged_task(id:string, task:tree){
+    log(id,&quot;start task&quot;)
+    task(..)
+    log(id,&quot;end task&quot;)
+}
+
+root main sequence {
+    // invoke the task parameter, passing the invokations with parameters 
+    logged_task(
+        &quot;1&quot;,
+        // invoke the task, passing the invokations with parameters
+        checked_task(check = check(), task())
+    )
+}
+</code></pre>
+<h3 id="pointers"><a class="header" href="#pointers">Pointers</a></h3>
+<p>Pointers are identifiers of the objects in the <a href="./bb.html">BlackBoard</a>
+Therefore, they can be used to obtain the value of the cell from bb, in argument invoking.</p>
+<p>In the example below, the system expects to find a string value in the cell with a name <code>bb_key</code>.</p>
+<pre><code class="language-f-tree">impl action(value:string);
+
+root main sequence {
+    // this is a pointer to a cell in bb with an id 'bb_key'
+    action(bb_key) 
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="antlr-grammar"><a class="header" href="#antlr-grammar">Antlr grammar</a></h1>
+<p>The grammar bears an introducing character (means it is not used straight in the code for now)</p>
+<h2 id="parser"><a class="header" href="#parser">Parser</a></h2>
+<pre><code class="language-antlrv4">parser grammar TreeParser;
+
+file
+    : (definition | importSt)* EOF
+    ;
+
+import_name
+    : id (EQ_A id)?
+    ;
+
+importCalls
+    : LBC (import_name (COMMA import_name)* COMMA?)? RBC
+    ;
+
+importSt
+    : IMPORT string importCalls?
+    ;
+
+definition
+    : tree_type id params? (calls? | SEMI)
+    ;
+
+call
+    : invocation
+    | lambda
+    ;
+
+invocation
+    : id (args | LPR DOT_DOT RPR)
+    ;
+
+
+lambda
+    : tree_type args? calls
+    ;
+
+calls
+    : LBC call* RBC
+    | call
+    ;
+
+
+arg
+    : id (EQ (message | id | call))?
+    | message
+    | call
+    ;
+
+args
+    : LPR (arg (COMMA arg)* COMMA?)? RPR
+    ;
+
+params
+    : LPR (param (COMMA param)*)? COMMA? RPR
+    ;
+
+param
+    : id COLON mes_type
+    ;
+
+message
+    : string
+    | num
+    | bool
+    | array
+    | object
+    ;
+
+mes_type
+    : NUM_T
+    | ARRAY_T
+    | OBJECT_T
+    | STRING_T
+    | BOOL_T
+    | TREE_T
+    ;
+
+tree_type
+    : ROOT
+    | PARALLEL
+    | SEQUENCE
+    | MSEQUENCE
+    | RSEQUENCE
+    | FALLBACK
+    | RFALLBACK
+    | id          // ambigulty
+    ;
+
+
+object
+    : LBC (objectPair (COMMA objectPair)* COMMA? )? RBC
+    ;
+
+objectPair
+    : string COLON message
+    ;
+
+
+array
+    : LBR (message (COMMA message)* COMMA? )? RBR
+    ;
+
+bool
+    : TRUE
+    | FALSE
+    ;
+
+num
+    : NUMBER
+    ;
+
+string
+    : STRING
+    ;
+id
+    : ID
+    ;
+</code></pre>
+<h2 id="lexer"><a class="header" href="#lexer">Lexer</a></h2>
+<pre><code class="language-antlrv4">lexer grammar TreeLexer;
+
+ROOT: 'ROOT';
+PARALLEL : 'parallel';
+
+SEQUENCE : 'sequence';
+MSEQUENCE : 'm_sequence';
+RSEQUENCE : 'r_sequence';
+
+FALLBACK: 'fallback';
+RFALLBACK : 'r_fallback';
+
+ARRAY_T: 'array';
+NUM_T: 'num';
+OBJECT_T: 'object';
+STRING_T: 'string';
+BOOL_T: 'bool';
+TREE_T: 'tree';
+IMPORT: 'import';
+
+ID : [-_a-zA-Z]+ (INT | [-_a-zA-Z]+)*  ;
+
+COMMA : ',';
+COLON : ':';
+SEMI : ';';
+DOT_DOT : '..';
+
+EQ  : '=';
+EQ_A  : '=&gt;';
+
+LPR  : '(';
+RPR  : ')';
+
+LBC  : '{';
+RBC  : '}';
+
+LBR  : '[';
+RBR  : ']';
+
+TRUE : 'TRUE';
+
+FALSE : 'FALSE';
+
+STRING  : '&quot;' (ESC | SAFECODEPOINT)* '&quot;' ;
+
+NUMBER  : '-'? INT ('.' [0-9] +)? EXP? ;
+
+Whitespace: [ \t]+ -&gt; skip ;
+
+Newline :   (   '\r' '\n'? | '\n') -&gt; skip ;
+
+BlockComment :   '/*' .*? '*/' -&gt; skip ;
+
+LineComment :   '//' ~[\r\n]* -&gt; skip ;
+
+fragment ESC : '\\' ([&quot;\\/bfnrt] | UNICODE) ;
+
+fragment UNICODE : 'u' HEX HEX HEX HEX ;
+fragment HEX : [0-9a-fA-F] ;
+
+fragment SAFECODEPOINT : ~ [&quot;\\\u0000-\u001F] ;
+fragment INT : '0' | [1-9] [0-9]* ;
+fragment EXP : [Ee] [+\-]? [0-9]+ ;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="visualization-1"><a class="header" href="#visualization-1">Visualization</a></h1>
+<p>The engine provides the ability to visualize a given project.</p>
+<h2 id="precausions"><a class="header" href="#precausions">Precausions</a></h2>
+<p>To get it worked locally, the <a href="https://graphviz.org/download/">graphviz</a> should be installed, 
+since the visualizations uses it under the hood. </p>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
+<p><img src="./pics/amr_simple.svg" alt="amr_simple.svg" /></p>
+<h2 id="how-to-use"><a class="header" href="#how-to-use">How to use</a></h2>
+<h3 id="console-utility"><a class="header" href="#console-utility">Console utility</a></h3>
+<pre><code class="language-shell">forester vis --root project/ --main main.tree --tree main --output viz.svg
+</code></pre>
+<ul>
+<li>root can be ommited, the <code>&lt;pwd&gt;</code> folder will be taken by default</li>
+<li>main can be ommited, by default, the name <code>main.tree</code> will be taken.</li>
+<li>tree can be ommited if only one root definition in the file</li>
+<li>output can be ommited, by default, the name of the main file will be taken but the extention will be <code>svg</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tracing-1"><a class="header" href="#tracing-1">Tracing</a></h1>
+<p>By default the engine tries to trace the information about the tree.
+It can be helpfull in analysing.</p>
+<p>Below, the example how it can be shown in a text form:</p>
+<pre><code class="language-text">[1]  1 : Running(cursor=0,len=1)
+[1]    2 : Running(cursor=0,len=3)
+[1]      3 : Success(key=x,value=tick)
+[1]    2 : Running(cursor=1,len=3)
+[1]      4 : Success(name=tick)
+[1]    2 : Running(cursor=2,len=3)
+[1]      5 : Running(cursor=0,len=2)
+[1]        6 : Success(k=a,i=1)
+[1]      5 : Running(cursor=1,len=2)
+[1]        7 : Running(cursor=0,len=2)
+[1]          8 : Failure(key=x,expected=10,reason=1 != 10)
+[1]        7 : Running(cursor=1,len=2)
+[1]          9 : Running()
+[1]        7 : Running(cursor=1,len=2)
+[1]      5 : Running(cursor=1,len=2,prev_cursor=1)
+[1]    2 : Running(cursor=2,len=3)
+[2]  next tick
+[2]    2 : Running(cursor=0,len=3)
+[2]      3 : Success(key=x,value=tick)
+[2]    2 : Running(cursor=1,len=3)
+[2]      4 : Success(name=tick)
+[2]    2 : Running(cursor=2,len=3)
+[2]      5 : Running(cursor=0,len=2,prev_cursor=1)
+[2]        7 : Running(cursor=0,len=2)
+[2]          8 : Failure(key=x,expected=10,reason=2 != 10)
+[2]        7 : Running(cursor=1,len=2)
+[2]          9 : Running()
+[2]        7 : Running(cursor=1,len=2)
+[2]      5 : Running(cursor=0,len=2,prev_cursor=1)
+[2]    2 : Running(cursor=2,len=3)
+[2]  1 : Running(cursor=0,len=1)
+</code></pre>
+<p>The first symbol <code>[X]</code> denotes the current tick. 
+The indent shows the level of nesting.
+Next it is a pairt of node id and the status with parameters.</p>
+<h2 id="custom-messages"><a class="header" href="#custom-messages">Custom messages</a></h2>
+<p>The users can add the custom messages using the parameter <code>Tracer</code> from context:</p>
+<pre><code class="language-f-tree">impl custom_state();
+root main repeat(3) custom_state()
+</code></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    struct CT;
+
+    impl Impl for CT {
+        fn tick(&amp;self, args: RtArgs, ctx: &amp;mut TreeContext) -&gt; Tick {
+            let i = ctx
+                .bb()
+                .get(&quot;k&quot;.to_string())?
+                .and_then(|v| v.clone().as_int())
+                .map(|v| v + 1)
+                .unwrap_or_default();
+
+            ctx.bb().put(&quot;k&quot;.to_string(), RtValue::int(i));
+            // the method trace accepts Event::Custom
+            ctx.trace(Event::Custom(format!(&quot;i = {:?}&quot;, i)));
+            
+            Ok(TickResult::success())
+        }
+    }
+
+<span class="boring">}</span></code></pre></pre>
+<p>That will igve the following trace:</p>
+<pre><code>[1]  1 : Running(cursor=0,len=1)
+[1]    2 : Running(len=1)
+[1]      i = 0
+[1]      3 : Success()
+[1]    2 : Running(arg=2,cursor=0,len=1)
+[2]  next tick
+[2]    2 : Running(arg=2,cursor=0,len=1)
+[2]      i = 1
+[2]      3 : Success()
+[2]    2 : Running(arg=3,cursor=0,len=1)
+[2]  1 : Running(cursor=0,len=1)
+[3]  next tick
+[3]    2 : Running(arg=3,cursor=0,len=1)
+[3]      i = 2
+[3]      3 : Success()
+[3]    2 : Success(arg=3,cursor=0,len=1)
+[3]  1 : Running(cursor=0,len=1)
+[3]  1 : Success(cursor=0,len=1)
+</code></pre>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>The tracer has a few settings.</p>
+<ul>
+<li>indent: the indent of the lines in dependance of the nesting level</li>
+<li>to_file: if the file is provided, the trace will be redirected into this file.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn file() {
+    let mut fb = fb(&quot;tracer/custom&quot;);
+    let tracer_log = test_folder(&quot;tracer/custom/main.trace&quot;);
+
+    fb.tracer(Tracer::create(TracerConfiguration {
+        indent: 2,
+        to_file: Some(tracer_log.clone()),
+    }));
+
+    let mut f = fb.build().unwrap();
+    let result = f.start();
+    assert_eq!(result, Ok(TickResult::success()));
+
+    let file_trace = fs::read_to_string(tracer_log).unwrap();
+    assert_eq!(file_trace, f.tracer.to_string())
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="simulation-1"><a class="header" href="#simulation-1">Simulation</a></h1>
+<p>Forester provides a conception to execute the given tree, replacing the actions to stubs.
+The major intention is to test the tree behaviour and test all branches under the specific conditions
+without coding the implementations at all.
+The profile enables to mix in the specific state of blackboard, trace the changes and visualize the tree.</p>
+<h2 id="preparations"><a class="header" href="#preparations">Preparations</a></h2>
+<h3 id="configuration-profile"><a class="header" href="#configuration-profile">Configuration profile</a></h3>
+<p><strong>All paths in the configuration files can be either absolute or relative to the root folder</strong></p>
+<p>The file contains the settings information alongisde with the information about stubbed options.</p>
+<p>Below, the example of the file:</p>
+<pre><code class="language-yaml">config:
+  trace: gen/main.trace
+  graph: gen/main.svg
+  bb:
+    dump: gen/bb.json
+  max_ticks: 10
+
+actions:
+  -
+    name: task
+    stub: failure
+    params:
+      delay: 100
+</code></pre>
+<p>Config section:</p>
+<div class="table-wrapper"><table><thead><tr><th>Setting</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody>
+<tr><td>trace</td><td>the trace file</td><td>if it is absent, there will be no action</td><td>gen/main.trace</td></tr>
+<tr><td>graph</td><td>the visualization file</td><td>if it is absent, there will be no action</td><td>gen/main.svg</td></tr>
+<tr><td>bb.dump</td><td>the dump of the bb at the end</td><td>if it is absent, there will be no action</td><td>gen/bb.json</td></tr>
+<tr><td>bb.load</td><td>the dump that will be used to init bb before sim</td><td>if it is absent, there will be no action</td><td>gen/init_bb.json</td></tr>
+<tr><td>max_ticks</td><td>the maximum amount of ticks to work.</td><td>0 by default</td><td>10</td></tr>
+</tbody></table>
+</div>
+<p>Actions sections:</p>
+<p>The actions sections is an array to stub the actions</p>
+<div class="table-wrapper"><table><thead><tr><th>Setting</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody>
+<tr><td>name</td><td>the name of the stubbed action</td><td>should be presented</td><td>name</td></tr>
+<tr><td>stub</td><td>the stubbed implementation</td><td>should be presented</td><td>success</td></tr>
+<tr><td>params.delay</td><td>denotes the pause before start in millis</td><td>0</td><td>100</td></tr>
+</tbody></table>
+</div>
+<h3 id="stubs"><a class="header" href="#stubs">Stubs</a></h3>
+<ul>
+<li>success: returns a success</li>
+<li>failure: returns a failure</li>
+<li>random: returns either a failure or a success randomly</li>
+</ul>
+<p>All stubs have the following params:</p>
+<ul>
+<li>delay: in millis, the time to delay the stub.</li>
+</ul>
+<h2 id="process"><a class="header" href="#process">Process</a></h2>
+<p>The simulation can be performed in on of two ways:</p>
+<ul>
+<li>using console application from console</li>
+<li>using library from rust code</li>
+</ul>
+<h3 id="in-the-code"><a class="header" href="#in-the-code">In the code</a></h3>
+<p>Just use the builder and the simulator from the <code>simulator</code> module.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn smoke() {
+    let mut sb = SimulatorBuilder::new();
+    
+    let root = test_folder(&quot;simulator/smoke&quot;);
+
+    sb.root(root);
+    
+    // can be relative to root or absolute.
+    sb.profile(PathBuf::from(&quot;sim.yaml&quot;));
+    sb.main_file(&quot;main.tree&quot;.to_string());
+    
+    // can be ommited if only one root definition in the file
+    sb.main_tree(&quot;main&quot;.to_string());
+    
+    let mut sim = sb.build().unwrap();
+    sim.run().unwrap();
+}
+
+<span class="boring">}</span></code></pre></pre>
+<h3 id="in-the-console"><a class="header" href="#in-the-console">In the console</a></h3>
+<p>Just use a <code>forest</code> console cli to run a simulation</p>
+<pre><code class="language-shell">forest sim --root tree\tests\simulator\smoke\  --profile sim.yaml
+</code></pre>
+<ul>
+<li>root can be ommited, the <code>&lt;pwd&gt;</code> folder will be taken by default</li>
+<li>tree can be ommited if only one root definition in the file</li>
+<li>main can be ommited, by default, the name <code>main.tree</code> will be taken.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="optimizations"><a class="header" href="#optimizations">Optimizations</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid-init.js"></script>
+        <script src="mermaid.min.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

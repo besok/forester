@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Parameters - Documentation for Forester</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="components.html"><strong aria-hidden="true">2.</strong> Components</a></li><li class="chapter-item expanded "><a href="intro_lang.html"><strong aria-hidden="true">3.</strong> Tree language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax.html"><strong aria-hidden="true">3.1.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="imports.html"><strong aria-hidden="true">3.2.</strong> Imports</a></li><li class="chapter-item expanded "><a href="definitions.html"><strong aria-hidden="true">3.3.</strong> Definitions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="flow.html"><strong aria-hidden="true">3.3.1.</strong> Flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="seq.html"><strong aria-hidden="true">3.3.1.1.</strong> Sequences</a></li><li class="chapter-item expanded "><a href="falls.html"><strong aria-hidden="true">3.3.1.2.</strong> Fallbacks</a></li><li class="chapter-item expanded "><a href="par.html"><strong aria-hidden="true">3.3.1.3.</strong> Parallel</a></li></ol></li><li class="chapter-item expanded "><a href="decorators.html"><strong aria-hidden="true">3.3.2.</strong> Decorators</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">3.3.3.</strong> Actions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="builtin.html"><strong aria-hidden="true">3.3.3.1.</strong> Built-In</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="invoc_intro.html"><strong aria-hidden="true">3.4.</strong> Invocations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hot.html"><strong aria-hidden="true">3.4.1.</strong> Higher order tree</a></li><li class="chapter-item expanded "><a href="lambda.html"><strong aria-hidden="true">3.4.2.</strong> Lambda</a></li></ol></li><li class="chapter-item expanded "><a href="params.html" class="active"><strong aria-hidden="true">3.5.</strong> Parameters</a></li><li class="chapter-item expanded "><a href="antlr.html"><strong aria-hidden="true">3.6.</strong> Antlr grammar</a></li></ol></li><li class="chapter-item expanded "><a href="engine_intro.html"><strong aria-hidden="true">4.</strong> Runtime engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="engine.html"><strong aria-hidden="true">4.1.</strong> Engine</a></li><li class="chapter-item expanded "><a href="bb.html"><strong aria-hidden="true">4.2.</strong> Blackboard</a></li><li class="chapter-item expanded "><a href="r_actions.html"><strong aria-hidden="true">4.3.</strong> Actions</a></li></ol></li><li class="chapter-item expanded "><a href="analysis.html"><strong aria-hidden="true">5.</strong> Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="viz.html"><strong aria-hidden="true">5.1.</strong> Visualization</a></li><li class="chapter-item expanded "><a href="trace.html"><strong aria-hidden="true">5.2.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="sim.html"><strong aria-hidden="true">5.3.</strong> Simulation</a></li><li class="chapter-item expanded "><a href="validations.html"><strong aria-hidden="true">5.4.</strong> Validations</a></li><li class="chapter-item expanded "><a href="optimizations.html"><strong aria-hidden="true">5.5.</strong> Optimizations</a></li></ol></li><li class="chapter-item expanded "><a href="api.html"><strong aria-hidden="true">6.</strong> How to run</a></li><li class="chapter-item expanded "><a href="f_examples.html"><strong aria-hidden="true">7.</strong> Examples</a></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">8.</strong> Tools</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Documentation for Forester</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1>
+<h2 id="terminology"><a class="header" href="#terminology">Terminology</a></h2>
+<ul>
+<li>Parameters are elements of tree definitions.</li>
+<li>Arguments are elements of tree invocations.</li>
+</ul>
+<pre><code class="language-f-tree">// parameters 'a' and 'b'
+sequence tree(a:string,b:num){
+    // arguments 'c', 'd'
+    job(c = 1, d = &quot;d&quot;)
+}
+</code></pre>
+<h2 id="arguments"><a class="header" href="#arguments">Arguments</a></h2>
+<p>Therefore, the arguments represent the attachments of the real value to the parameters.
+The Argument can be one of two types:</p>
+<ul>
+<li>Named argument</li>
+<li>Unnamed argument</li>
+</ul>
+<pre><code class="language-f-tree">impl action(a:string, b:num)
+
+root main sequnce {
+    // Named Arguments
+    action(a=&quot;a&quot;,b:1)
+    
+    // Unnamed Arguments
+    action(&quot;a&quot;,1)
+}
+</code></pre>
+<p><strong>There is impossible to mix named and unnamed arguments</strong>
+The following code will have an error during the compilation process.</p>
+<pre><code class="language-f-tree">impl action(a:string, b:num)
+root main sequnce {
+    action(&quot;a&quot;,b=1 )
+}
+</code></pre>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<h3 id="number"><a class="header" href="#number">Number</a></h3>
+<p>The numbers are defined with a keyword <code>num</code>
+There are 4 possible types of numbers presented:</p>
+<ul>
+<li>Integers(64)</li>
+<li>Floats(64)</li>
+<li>Hex</li>
+<li>Binary</li>
+</ul>
+<p><strong>In case of exceeding the maximum value, the error will be raised on the compile time.</strong></p>
+<pre><code class="language-f-tree">impl action(param:num)
+
+root main sequence {
+    // Integers
+    action(1)
+    action(10e2)
+    action(-1)
+    action(0)
+    
+    // Floats
+    action(0.0)
+    action(100.0e1)
+    action(-100.0)
+    
+    // Hex
+    action(0x123)
+    
+    // Binary
+    action(0b010101)
+}
+</code></pre>
+<h3 id="string"><a class="header" href="#string">String</a></h3>
+<p>The strings are defined with <code>string</code></p>
+<pre><code class="language-f-tree">impl action(param:string)
+root main action(param = &quot;X&quot;)
+</code></pre>
+<h3 id="boolean"><a class="header" href="#boolean">Boolean</a></h3>
+<p>The booleans are defined with a keyword <code>bool</code> and has the following parameters:</p>
+<ul>
+<li><code>true</code> for the positive statement</li>
+<li><code>false</code> for the negative statement</li>
+</ul>
+<pre><code class="language-f-tree">impl action(param:bool);
+root main action(true)
+</code></pre>
+<h3 id="arrays"><a class="header" href="#arrays">Arrays</a></h3>
+<p>The arrays are defined with keyword <code>array</code>
+Arrays can have several aforementioned elements encompassed in one entity.</p>
+<p>The arrays have the following syntax:</p>
+<ul>
+<li><code>[</code> defines the start of array</li>
+<li><code>]</code> defines the end of array</li>
+<li><code>,</code> defines the separator between elements</li>
+<li>the rest is defined by the particular elements</li>
+</ul>
+<p><strong>It is expected, the arrays are homogeneous and have all elements only one type</strong></p>
+<p><strong>The arrays can have a trailing comma as well, <code>[1,]</code></strong></p>
+<pre><code class="language-f-tree">impl action(elems:array);
+root main sequence {
+    action([1,2,3,4])
+    action([1.1,0.1])
+    action([&quot;a&quot;,&quot;b&quot;])
+}
+</code></pre>
+<h3 id="objects"><a class="header" href="#objects">Objects</a></h3>
+<p>The objects are defined with keyword <code>object</code>
+Objects can have several aforementioned elements encompassed
+in one entity with the unique key attached to the every entity</p>
+<p>The objects have the following syntax:</p>
+<ul>
+<li><code>{</code> defines the start of object</li>
+<li><code>}</code> defines the end of object</li>
+<li><code>,</code> defines the separator between elements</li>
+<li>&quot;key&quot; defines the name of the element key</li>
+<li>the rest is defined by the particular elements</li>
+</ul>
+<p><strong>The objects can have a trailing comma as well, <code>{&quot;a&quot;:1,}</code></strong></p>
+<pre><code class="language-f-tree">impl action(elems:object);
+root main sequence {
+    action({&quot;key&quot;:1, &quot;key2&quot;:&quot;key&quot;})
+    action(
+        {
+            &quot;array&quot;: [1,2,3,4,],
+            &quot;string&quot;:&quot;string&quot;,
+            &quot;num&quot;:1,
+            &quot;pointer&quot;: pointer
+        }
+    )
+}
+</code></pre>
+<h3 id="tree"><a class="header" href="#tree">Tree</a></h3>
+<p>The other tree definitions are defined with a keyword <code>tree</code>
+**The parameters of this type can be added and defined only in the <a href="./flow.html">flow</a> definitions.</p>
+<pre><code class="language-f-tree">impl log(id:string,info:string);
+cond check();
+cond task();
+
+fallback checked_task(check:tree, task:tree){
+    check(..)
+    task(..)
+}
+
+sequence logged_task(id:string, task:tree){
+    log(id,&quot;start task&quot;)
+    task(..)
+    log(id,&quot;end task&quot;)
+}
+
+root main sequence {
+    // invoke the task parameter, passing the invokations with parameters 
+    logged_task(
+        &quot;1&quot;,
+        // invoke the task, passing the invokations with parameters
+        checked_task(check = check(), task())
+    )
+}
+</code></pre>
+<h3 id="pointers"><a class="header" href="#pointers">Pointers</a></h3>
+<p>Pointers are identifiers of the objects in the <a href="./bb.html">BlackBoard</a>
+Therefore, they can be used to obtain the value of the cell from bb, in argument invoking.</p>
+<p>In the example below, the system expects to find a string value in the cell with a name <code>bb_key</code>.</p>
+<pre><code class="language-f-tree">impl action(value:string);
+
+root main sequence {
+    // this is a pointer to a cell in bb with an id 'bb_key'
+    action(bb_key) 
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="lambda.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="antlr.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="lambda.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="antlr.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid-init.js"></script>
+        <script src="mermaid.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
